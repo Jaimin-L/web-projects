@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <span style="cursor:pointer;margin-top:1px" id="btnLogin">登录</span>
+    <script type="text/javascript">
+        var count = 0;
+        function overColor(e) {
+            e.style.color = 'blue';
+        };
+        function outColor(e) {
+            e.style.color = 'black';
+        };
+        //onload = function () {
+            document.getElementById('btnLogin').onmouseover = function () {
+                overColor(this);
+            };
+            document.getElementById('btnLogin').onmouseout = function () {
+                outColor(this);
+            };
+            document.getElementById('btnLogin').onclick = function () {
+                overColor(this);
+                count++;
+                if (count == 1) {
+                    var dvObj = document.createElement('div');
+                    dvObj.style.width = '25%';
+                    dvObj.style.height = '250px';
+                    dvObj.style.backgroundColor = 'lightseagreen';
+                    //脱离文档流
+                    dvObj.style.position = 'absolute';
+                    dvObj.style.left = '37.5%';
+                    dvObj.style.top = '200px';
+                    dvObj.id = 'dv';
+                    document.body.appendChild(dvObj);
+
+                    var spanObj_one = document.createElement('span');
+                    spanObj_one.style.position = 'absolute';
+                    spanObj_one.innerText = '用户:';
+                    spanObj_one.style.left = '15%';
+                    spanObj_one.style.top = '50px';
+                    spanObj_one.style.lineHeight = '25px';
+                    dvObj.appendChild(spanObj_one);
+
+
+                    var spanObj_two = document.createElement('span');
+                    spanObj_two.style.position = 'absolute';
+                    spanObj_two.innerText = '密码:';
+                    spanObj_two.style.left = '15%';
+                    spanObj_two.style.top = '125px';
+                    spanObj_two.style.lineHeight = '25px';
+                    dvObj.appendChild(spanObj_two);
+                    //创建文本框
+                    var txtObj_one = document.createElement('input');
+                    txtObj_one.style.position = 'absolute';
+                    txtObj_one.type = 'text';
+                    txtObj_one.style.width = '55%';
+                    txtObj_one.style.height = '25px';
+                    txtObj_one.style.top = '50px';
+                    txtObj_one.style.left = '100px';
+                    dvObj.appendChild(txtObj_one);
+
+
+                    var txtObj_two = document.createElement('input');
+                    txtObj_two.style.position = 'absolute';
+                    txtObj_two.type = 'password';
+                    txtObj_two.style.width = '55%';
+                    txtObj_two.style.height = '25px';
+                    txtObj_two.style.top = '125px';
+                    txtObj_two.style.left = '100px';
+                    dvObj.appendChild(txtObj_two);
+
+                    var btnOk = document.createElement('input');
+                    btnOk.type = 'button';
+                    btnOk.value = '确定';
+                    btnOk.width = '10%';
+                    btnOk.style.fontStyle = 'B';
+                    btnOk.style.position = 'absolute';
+                    btnOk.style.top = '200px';
+                    btnOk.style.left = '45%';
+                    dvObj.appendChild(btnOk);
+
+                    var spanClose = document.createElement('span');
+                    spanClose.innerText = '×';
+                    spanClose.style.position = 'absolute';
+                    spanClose.style.right = '5px';
+                    spanClose.id = 'close';
+                    spanClose.style.cursor = 'pointer';
+                    dvObj.appendChild(spanClose);
+                    document.getElementById('close').onclick = function () {
+                        document.body.removeChild(dvObj);
+                        count = 0;
+                    };
+                    document.getElementById('close').onmouseover = function () {
+                        overColor(this);
+                        //this.style.color = 'blue';
+                    };
+                    document.getElementById('close').onmouseout = function () {
+                        outColor(this);
+                    }
+                }
+
+            };
+
+       // };
+    </script>
+</body>
+</html>
